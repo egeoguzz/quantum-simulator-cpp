@@ -6,6 +6,7 @@ class QuantumState {
 public:
     QuantumState(int numQubits);
     void applySingleQubitGate(const std::complex<double> gate[2][2], int target);
+    void printState() const;
 private:
     int numQubits_;
     std::vector<std::complex<double>> state_;
