@@ -28,3 +28,25 @@ void QuantumState::applySingleQubitGate(const std::complex<double> gate[2][2], i
         }
     }
 }
+
+void QuantumState::printState() const {
+    double normCheck = 0.0;
+    for (const auto& amp : state_) {
+        normCheck += std::norm(amp);
+    }
+
+    std::cout << "Quantum State (" << numQubits_ << " qubits):\n";
+    int dim = state_.size();
+    for (int i = 0; i < dim; ++i) {
+        auto a = state_[i];
+        std::cout << "|" << i << ">: "
+                  << a.real()
+                  << (a.imag() >= 0 ? "+" : "-")
+                  << std::abs(a.imag()) << "i\n";
+    }
+
+    if (std::abs(normCheck - 1.0) > 1e-9) {
+        std::cout << "Warning: State is not normalized! Norm = "
+                  << normCheck << "\n";
+    }
+}
