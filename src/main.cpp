@@ -4,7 +4,7 @@
 #include <cmath>
 
 int main() {
-    QuantumState qs(1); // 1 qubit
+    QuantumState qs(1);
 
     double invSqrt2 = 1.0 / std::sqrt(2);
     std::complex<double> H[2][2] = {
@@ -13,8 +13,8 @@ int main() {
     };
 
     qs.applySingleQubitGate(H, 0);
+    qs.printState();
 
-    std::cout << "Applied H gate to |0>\n";
     return 0;
 }
 
