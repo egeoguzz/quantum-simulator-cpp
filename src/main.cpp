@@ -14,7 +14,8 @@ int main() {
 
     qs.applySingleQubitGate(H, 0);
     qs.printState();
-
+ha
+    
     return 0;
 }
 
