@@ -50,3 +50,19 @@ void QuantumState::printState() const {
                   << normCheck << "\n";
     }
 }
+
+void QuantumState::applyX(int target) {
+    std::complex<double> X[2][2] = {
+        {{0,0}, {1,0}},
+        {{1,0}, {0,0}}
+    };
+    applySingleQubitGate(X, target);
+}
+
+void QuantumState::applyZ(int target) {
+    std::complex<double> Z[2][2] = {
+        {{1,0}, {0,0}},
+        {{0,0}, {-1,0}}
+    };
+    applySingleQubitGate(Z, target);
+}

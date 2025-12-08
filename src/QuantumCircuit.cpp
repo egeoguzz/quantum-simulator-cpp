@@ -22,20 +22,3 @@ void QuantumCircuit::cx(int control, int target) {
     g.target = target;
     gates_.push_back(g);
 }
-
-void QuantumState::applyX(int target) {
-    std::complex<double> X[2][2] = {
-        {{0,0}, {1,0}},
-        {{1,0}, {0,0}}
-    };
-    applySingleQubitGate(X, target);
-}
-
-void QuantumState::applyZ(int target) {
-    std::complex<double> Z[2][2] = {
-        {{1,0}, {0,0}},
-        {{0,0}, {-1,0}}
-    };
-    applySingleQubitGate(Z, target);
-}
-
