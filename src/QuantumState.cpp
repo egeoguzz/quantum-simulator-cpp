@@ -66,3 +66,21 @@ void QuantumState::applyZ(int target) {
     };
     applySingleQubitGate(Z, target);
 }
+
+void QuantumState::applyH(int target) {
+    double invSqrt2 = 1.0 / std::sqrt(2);
+    std::complex<double> H[2][2] = {
+        {invSqrt2, invSqrt2},
+        {invSqrt2, -invSqrt2}
+    };
+    applySingleQubitGate(H, target);
+}
+
+void QuantumState::applyPhase(int target) {
+    std::complex<double> S[2][2] = {
+        {{1,0}, {0,0}},
+        {{0,0}, {0,1}}
+    };
+    applySingleQubitGate(S, target);
+}
+
