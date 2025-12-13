@@ -84,3 +84,21 @@ void QuantumState::applyPhase(int target) {
     applySingleQubitGate(S, target);
 }
 
+void QuantumState::applyT(int target) {
+    double pi_4 = M_PI / 4;
+    std::complex<double> T[2][2] = {
+        {{1,0}, {0,0}},
+        {{0,0}, {std::cos(pi_4), std::sin(pi_4)}}
+    };
+    applySingleQubitGate(T, target);
+}
+
+void QuantumState::applyRZ(int target, double theta) {
+    std::complex<double> eNeg = {std::cos(-theta/2), std::sin(-theta/2)};
+    std::complex<double> ePos = {std::cos(theta/2), std::sin(theta/2)};
+    std::complex<double> RZ[2][2] = {
+        {eNeg, {0,0}},
+        {{0,0}, ePos}
+    };
+    applySingleQubitGate(RZ, target);
+}
