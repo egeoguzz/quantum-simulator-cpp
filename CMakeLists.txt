@@ -14,4 +14,5 @@ add_executable(quantum_simulator
     src/QuantumState.cpp
     src/Gate.cpp
     src/QuantumCircuit.cpp
+    src/DSLParser.cpp
 )

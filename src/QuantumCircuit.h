@@ -1,6 +1,7 @@
 #pragma once
 #include <vector>
 #include "Gate.h"
+#include <string>
 
 class QuantumCircuit {
 public:

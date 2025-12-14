@@ -1,9 +1,10 @@
 #include "QuantumCircuit.h"
+#include "DSLParser.h"
 
 int main() {
     QuantumCircuit qc(2);
-    qc.h(0);
-    qc.cx(0, 1);
+    DSLParser::loadFromFile("example.qc", qc);
     qc.run();
     return 0;
 }
+
