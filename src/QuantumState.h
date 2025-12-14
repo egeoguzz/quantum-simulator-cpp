@@ -14,6 +14,7 @@ public:
     void applyRZ(int target, double theta);
     void applyCNOT(int control, int target);
     void printState() const;
+    int measureAll();
 private:
     int numQubits_;
     std::vector<std::complex<double>> state_;

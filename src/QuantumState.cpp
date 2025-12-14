@@ -1,12 +1,13 @@
 #include "QuantumState.h"
 #include <iostream>
 #include <cmath>
+#include <random>
 
 QuantumState::QuantumState(int numQubits)
     : numQubits_(numQubits),
       state_(1 << numQubits, {0.0, 0.0})
 {
-    state_[0] = {1.0, 0.0}; // |00...0>
+    state_[0] = {1.0, 0.0};
 }
 
 void QuantumState::applySingleQubitGate(const std::complex<double> gate[2][2], int target) {
@@ -120,4 +121,40 @@ void QuantumState::applyCNOT(int control, int target) {
             state_[i] = old[i];
         }
     }
+}
+
+int QuantumState::measureAll() {
+    double totalProb = 0.0;
+    for (const auto& amp : state_) {
+        totalProb += std::norm(amp);
+    }
+
+    if (std::abs(totalProb - 1.0) > 1e-9 && totalProb > 0.0) {
+        for (auto& amp : state_) {
+            amp /= std::sqrt(totalProb);
+        }
+    }
+
+    static std::random_device rd;
+    static std::mt19937 gen(rd());
+    std::uniform_real_distribution<double> dist(0.0, 1.0);
+
+    double r = dist(gen);
+    double cumulative = 0.0;
+    int outcome = 0;
+
+    for (int i = 0; i < (int)state_.size(); ++i) {
+        cumulative += std::norm(state_[i]);
+        if (r <= cumulative) {
+            outcome = i;
+            break;
+        }
+    }
+
+    for (auto& amp : state_) {
+        amp = {0.0, 0.0};
+    }
+    state_[outcome] = {1.0, 0.0};
+
+    return outcome;
 }

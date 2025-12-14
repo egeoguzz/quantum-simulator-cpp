@@ -11,6 +11,7 @@ public:
     void rz(int q, double theta);
     void cx(int control, int target);
     void run();
+    int measureAll();
 private:
     int numQubits_;
     std::vector<Gate> gates_;

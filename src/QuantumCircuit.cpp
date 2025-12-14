@@ -46,3 +46,20 @@ void QuantumCircuit::run() {
 
     state.printState();
 }
+
+int QuantumCircuit::measureAll() {
+    QuantumState state(numQubits_);
+
+    for (const auto& gate : gates_) {
+        switch (gate.type) {
+            case Gate::X:  state.applyX(gate.target); break;
+            case Gate::H:  state.applyH(gate.target); break;
+            case Gate::RZ: state.applyRZ(gate.target, gate.theta); break;
+            case Gate::CX: state.applyCNOT(gate.control, gate.target); break;
+        }
+    }
+
+    int result = state.measureAll();
+    state.printState();
+    return result;
+}
