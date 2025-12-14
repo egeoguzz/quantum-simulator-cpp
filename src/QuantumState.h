@@ -12,6 +12,7 @@ public:
     void applyPhase(int target);
     void applyT(int target);
     void applyRZ(int target, double theta);
+    void applyCNOT(int control, int target);
     void printState() const;
 private:
     int numQubits_;

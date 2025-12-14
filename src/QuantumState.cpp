@@ -1,4 +1,6 @@
 #include "QuantumState.h"
+#include <iostream>
+#include <cmath>
 
 QuantumState::QuantumState(int numQubits)
     : numQubits_(numQubits),
@@ -101,4 +103,21 @@ void QuantumState::applyRZ(int target, double theta) {
         {{0,0}, ePos}
     };
     applySingleQubitGate(RZ, target);
+}
+
+void QuantumState::applyCNOT(int control, int target) {
+    int dim = state_.size();
+    int controlMask = 1 << control;
+    int targetMask  = 1 << target;
+
+    std::vector<std::complex<double>> old = state_;
+
+    for (int i = 0; i < dim; ++i) {
+        if (i & controlMask) {
+            int flipped = i ^ targetMask;
+            state_[flipped] = old[i];
+        } else {
+            state_[i] = old[i];
+        }
+    }
 }

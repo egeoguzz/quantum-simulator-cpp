@@ -4,18 +4,12 @@
 #include <cmath>
 
 int main() {
-    QuantumState qs(1);
+    QuantumState qs(2);   // 2 qubit: |00>
 
-    double invSqrt2 = 1.0 / std::sqrt(2);
-    std::complex<double> H[2][2] = {
-        {invSqrt2, invSqrt2},
-        {invSqrt2, -invSqrt2}
-    };
+    qs.applyH(0);         // superposition
+    qs.applyCNOT(0, 1);   // entanglement
 
-    qs.applySingleQubitGate(H, 0);
     qs.printState();
-ha
-    
     return 0;
 }
 
