@@ -9,6 +9,7 @@ public:
     void h(int q);
     void rz(int q, double theta);
     void cx(int control, int target);
+    void run();
 private:
     int numQubits_;
     std::vector<Gate> gates_;

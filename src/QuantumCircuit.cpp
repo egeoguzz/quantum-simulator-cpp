@@ -1,4 +1,5 @@
 #include "QuantumCircuit.h"
+#include "QuantumState.h"
 
 QuantumCircuit::QuantumCircuit(int numQubits)
     : numQubits_(numQubits) {}
@@ -21,4 +22,27 @@ void QuantumCircuit::cx(int control, int target) {
     g.control = control;
     g.target = target;
     gates_.push_back(g);
+}
+
+void QuantumCircuit::run() {
+    QuantumState state(numQubits_);
+
+    for (const auto& gate : gates_) {
+        switch (gate.type) {
+            case Gate::X:
+                state.applyX(gate.target);
+                break;
+            case Gate::H:
+                state.applyH(gate.target);
+                break;
+            case Gate::RZ:
+                state.applyRZ(gate.target, gate.theta);
+                break;
+            case Gate::CX:
+                state.applyCNOT(gate.control, gate.target);
+                break;
+        }
+    }
+
+    state.printState();
 }
