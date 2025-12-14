@@ -13,6 +13,8 @@ void DSLParser::loadFromFile(const std::string& path, QuantumCircuit& qc) {
     std::string line;
     while (std::getline(in, line)) {
         if (line.empty()) continue;
+        
+        if (line[0] == '#') continue;
 
         std::istringstream iss(line);
         std::string op;

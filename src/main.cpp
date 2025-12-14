@@ -1,12 +1,14 @@
 #include "QuantumCircuit.h"
+#include "DSLParser.h"
 #include <iostream>
 
 int main() {
-    QuantumCircuit qc(2);
-    qc.h(0);
-    qc.cx(0, 1);
+    QuantumCircuit qc(3);
 
-    int outcome = qc.measureAll();
-    std::cout << "Measured outcome: |" << outcome << ">\n";
+    // DSLParser::loadFromFile("examples/teleportation.qc", qc);
+    DSLParser::loadFromFile("examples/bell.qc", qc);
+
+    int result = qc.measureAll();
+    std::cout << "Measured outcome: |" << result << ">\n";
     return 0;
 }
