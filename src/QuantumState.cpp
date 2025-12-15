@@ -22,6 +22,7 @@ void QuantumState::applySingleQubitGate(const std::complex<double> gate[2][2], i
         int i0 = base;
         int i1 = base | step;
 
+        // Update pairs (|0>, |1>) only once per target bit
         if (bit == 0) {
             std::complex<double> a0 = old[i0];
             std::complex<double> a1 = old[i1];
