@@ -52,6 +52,8 @@ make
 ./quantum_simulator
 ```
 
+---
+
 Run the binary from the repository root if using DSL examples:
 
 bash
@@ -66,6 +68,8 @@ H 0
 CX 0 1
 RZ 1 1.57
 
+---
+
 **Supported operations:**
 
 H q
@@ -73,7 +77,11 @@ X q
 RZ q theta
 CX control target
 
+---
+
 Lines starting with # are treated as comments.
+
+---
 
 **Example Circuits**
 
@@ -84,10 +92,14 @@ Quantum Teleportation (simplified)
 Demonstrates multi-qubit interaction and measurement-based state collapse.
 Classical feed-forward is intentionally omitted for simplicity.
 
+---
+
 **Why This Project**
 This simulator was built as a hands-on exploration of quantum computing fundamentals
 from a software engineering perspective. It emphasizes clarity, correctness, and
 clean abstractions over performance or large-scale simulation.
+
+---
 
 **Future Improvements**
 
