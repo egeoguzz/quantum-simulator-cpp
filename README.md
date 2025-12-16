@@ -72,7 +72,7 @@ RZ 1 1.57
 ---
 
 ```md
-**Supported operations:**
+Supported operations:
 
 H q
 X q
@@ -97,14 +97,14 @@ Classical feed-forward is intentionally omitted for simplicity.
 
 ---
 
-**Why This Project**
+##Why This Project**
 This simulator was built as a hands-on exploration of quantum computing fundamentals
 from a software engineering perspective. It emphasizes clarity, correctness, and
 clean abstractions over performance or large-scale simulation.
 
 ---
 
-**Future Improvements**
+##Future Improvements**
 
 Partial qubit measurement
 
