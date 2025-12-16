@@ -71,8 +71,6 @@ CX 0 1
 RZ 1 1.57
 ```
 
----
-
 ```md
 Supported operations:
 
@@ -81,8 +79,6 @@ X q
 RZ q theta
 CX control target
 ```
-
----
 
 Lines starting with # are treated as comments.
 
