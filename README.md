@@ -49,7 +49,8 @@ mkdir build
 cd build
 cmake ..
 make
-./quantum_simulator
+./quantum_simulator```
+
 Run the binary from the repository root if using DSL examples:
 
 bash
