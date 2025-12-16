@@ -59,7 +59,9 @@ Run the binary from the repository root if using DSL examples:
 bash
 ./build/quantum_simulator
 
-DSL Format
+---
+
+## DSL Format
 Example circuit definition:
 
 ```txt
@@ -88,10 +90,10 @@ Lines starting with # are treated as comments.
 
 **Example Circuits**
 
-Bell State
+**Bell State**
 Demonstrates superposition and entanglement. Measurement collapses to |00> or |11> with approximately equal probability.
 
-Quantum Teleportation (simplified)
+**Quantum Teleportation (simplified)**
 Demonstrates multi-qubit interaction and measurement-based state collapse.
 Classical feed-forward is intentionally omitted for simplicity.
 
@@ -106,12 +108,12 @@ clean abstractions over performance or large-scale simulation.
 
 ## Future Improvements
 
-Partial qubit measurement
+- Partial qubit measurement
 
-Classical feed-forward logic for teleportation
+- Classical feed-forward logic for teleportation
 
-Noise and decoherence models
+- Noise and decoherence models
 
-Performance optimizations for larger qubit counts
+- Performance optimizations for larger qubit counts
 
-Note: This project is intended for educational and experimental use.
+**Note**: This project is intended for educational and experimental use.
