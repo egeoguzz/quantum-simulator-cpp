@@ -62,20 +62,23 @@ bash
 DSL Format
 Example circuit definition:
 
-txt
+```txt
 
 H 0
 CX 0 1
 RZ 1 1.57
+```
 
 ---
 
+```md
 **Supported operations:**
 
 H q
 X q
 RZ q theta
 CX control target
+```
 
 ---
 
